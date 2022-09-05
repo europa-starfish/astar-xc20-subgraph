@@ -1,0 +1,12 @@
+node_modules/
+build/
+subgraph.temp.yaml
+envVars.ts.backup
+package-lock.json
+package-dev.json
+scripts/initDev.js
+*.zip
+
+# MacOS Files
+.DS_Store
+

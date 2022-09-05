@@ -1,0 +1,5 @@
+# Vault
+type User @entity {
+  id: ID!
+  balance: BigInt!
+}

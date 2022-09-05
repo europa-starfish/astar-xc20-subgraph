@@ -1,0 +1,26 @@
+specVersion: 0.0.4
+description: starfish API.
+repository: https://github.com/Starfish-Finance/starfish-subgraphs
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Dot
+    network: mainnet
+    source:
+      address: "0xFFfFfFffFFfffFFfFFfFFFFFffFFFffffFfFFFfF"
+      abi: ERC20
+      startBlock: 1000000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/handler.ts
+      entities:
+        - User
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20_ABI.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
